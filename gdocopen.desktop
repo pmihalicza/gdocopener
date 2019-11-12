@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=gdocopen
+Comment=
+Exec=python3 [your_path_to_the_gdocopen.py_file]/gdocopen.py %f
+Terminal=false
+Type=Application
+MimeType=application/json
