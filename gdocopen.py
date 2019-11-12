@@ -22,7 +22,11 @@ def open_url_in_chrome(gdoc_url):
     elif platform.system() == 'Windows':
         command = 'Chrome.exe'
 
-    call([command, gdoc_url])
+    try:
+        return call([command, gdoc_url])
+    except FileNotFoundError:
+        print('Could not run Chrome. Maybe it is not installed?')
+        return 1
 
 if __name__ == '__main__':
     gdoc_file = argv[1]
