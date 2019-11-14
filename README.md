@@ -11,4 +11,7 @@ run sudo chmod a+x gdcopen.desktop
 select gdcopen as default app for gdoc files
 
 Windows
+
+Google's Backup and sync solves the problem, so I highly recommend to install it.
+If you do not want to install Backup and sync, here is what you have to do.
 In windows: http://www.buechse.de/HOWTO/python_windows_with_arguments/
