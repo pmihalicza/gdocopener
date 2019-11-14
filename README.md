@@ -10,6 +10,9 @@ run sudo chmod a+x gdcopen.desktop
 
 select gdcopen as default app for gdoc files
 
+According to this thread, Google do not plan to have a client on Linux any time soon:
+https://support.google.com/drive/thread/2269747?hl=en
+
 Windows
 
 Google's Backup and sync solves the problem, so I highly recommend to install it.
