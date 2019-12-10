@@ -9,6 +9,7 @@ You will need superuser priviliges, so use 'sudo cp [SOURCE] [DEST]'.
 run sudo chmod a+x gdcopen.desktop
 
 select gdcopen as default app for gdoc files
+The problem with this approach, that it also changes the default app for all text documents, as Linux works based on MIME types and not extensions.
 
 According to this thread, Google do not plan to have a client on Linux any time soon:
 https://support.google.com/drive/thread/2269747?hl=en
