@@ -5,6 +5,7 @@ import json
 import os.path
 import sys
 
+
 def check_file_extension_and_open_file(file_to_open, text_editor='gedit'):
     """This function checks if the file-to-be-opened is actually a Google Docs (gdoc, gsheet, gslides) file or not.
     If not, then the file is passed to the the text editor and gdocopener exits. (This is necessary, because Linux
@@ -15,8 +16,12 @@ def check_file_extension_and_open_file(file_to_open, text_editor='gedit'):
     _, extension = os.path.splitext(file_to_open)
     if extension not in ['.gdoc', '.gsheet', '.gslides']:
         print('This was not a Google Docs file, so gdocopener passed it over to the text editor.')
-        call([text_editor, file_to_open])
-        sys.exit()
+        try:
+            return call([text_editor, file_to_open])
+        except FileNotFoundError:
+            print('Could not run the text editor. Maybe not installed?')
+        finally:
+            sys.exit()
 
     try:
         with open(file_to_open, 'r') as file:
