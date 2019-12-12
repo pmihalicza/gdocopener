@@ -1,7 +1,7 @@
 [Desktop Entry]
-Name=gdocopen
+Name=gdocopener
 Comment=
-Exec=python3 [your_path_to_the_gdocopen.py_file]/gdocopen.py %f
+Exec=python3 [your_path_to_the_gdocopener.py_file]/gdocopener.py %f
 Terminal=false
 Type=Application
 MimeType=application/json
