@@ -11,7 +11,8 @@ def check_file_extension_and_open_file(file_to_open, text_editor='gedit'):
     If not, then the file is passed to the the text editor and gdocopener exits. (This is necessary, because Linux
     makes file
     associations
-    based on file types and not on file extensions.) If it is Google Docs file indeed, it returns its contents."""
+    based on file types and not on file extensions.) If it is Google Docs file indeed, the function returns its
+    contents."""
 
     _, extension = os.path.splitext(file_to_open)
     if extension not in ['.gdoc', '.gsheet', '.gslides']:
