@@ -3,8 +3,13 @@ import pytest
 
 def test_open_url_in_chrome():
     gdoc_url = 'https://imdb.com'
-    returncode = gd.open_url_in_chrome(gdoc_url)
-    assert returncode == 0, 'Something went wrong with opening the URL in Chrome'
+    try:
+        gd.open_url_in_chrome(gdoc_url)
+    except Exception as e:
+        print(e)
+        assert False
+    else:
+        assert True
 
 def test_extract_url_from_gdoc():
     gdoc_content = '{' \

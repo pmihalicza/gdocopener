@@ -1,9 +1,9 @@
 from sys import argv
 from subprocess import call
-import platform
 import json
 import os.path
 import sys
+import webbrowser
 
 
 def check_file_extension_and_open_file(file_to_open, text_editor='gedit'):
@@ -51,22 +51,25 @@ def open_url_in_chrome(gdoc_url):
     """This function takes the url of the gdoc file and opens it in the Chrome browser. The function chooses the
     appropriate command to start Chrome based on the user's current OS."""
 
-    if platform.system() == 'Linux':
-        command = 'google-chrome'
-    elif platform.system() == 'Windows':
-        command = 'Chrome.exe'
-
     try:
-        return call([command, gdoc_url])
-    except FileNotFoundError:
-        print('Could not run Chrome. Maybe it is not installed?')
-        return 1
+        webbrowser.open_new_tab(gdoc_url)
+    except webbrowser.Error:
+        print('There was a problem with opening the url in the web browser.')
+        sys.exit()
+
 
 if __name__ == '__main__':
-    if len(argv) > 1:
+    number_of_arguments = len(argv)
+    if number_of_arguments > 1:
         file_to_open = argv[1]
 
-        content = check_file_extension_and_open_file(file_to_open=file_to_open)
+        # Set the preferred text editor, if given as second argument
+        if number_of_arguments > 2:
+            text_editor = argv[2]
+        else:
+            text_editor = 'gedit'
+
+        content = check_file_extension_and_open_file(file_to_open=file_to_open, text_editor=text_editor)
         gdoc_path = extract_url_from_gdoc(gdoc_content=content)
         open_url_in_chrome(gdoc_path)
     else:
