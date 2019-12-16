@@ -13,7 +13,8 @@ You will need superuser priviliges, so use 'sudo cp [SOURCE] [DEST]'.
 5. Select gdocopener as the default app for gdoc/gsheet/gslides files, following instructions in this post: .
 https://help.ubuntu.com/stable/ubuntu-help/files-open.html
 
-Please note, that step 5. also changes the default app for all text documents. gdocopener handles this, and if you open a "normal" text file - i.e. not Google Docs - it will be passed to a text editor (currently hardcoded to 'gedit').
+Please note, that step 5. also changes the default app for all text documents. gdocopener handles this, and if you open a "normal" text file - i.e. not Google Docs - it will be passed to a text editor. The default text editor is 'gedit', but you can change that by passing a second argument to gdocopener (e.g. to use nano, type 'python gdocopener.py test.gdoc nano'). If you want this to be the default behavior, change the 'Exec' line in the gdocopener.desktop file:
+Exec=python3 [your_path_to_the_gdocopener.py_file]/gdocopener.py %f your_preferred_editor
 
 If you don't have python and unwilling to install it, download the compiled, executable file from /dist in this repo and change the executable in the gdocopener.desktop file to this:
 Exec=[your_path_to_the_gdocopener_executable file]/gdocopener %f
